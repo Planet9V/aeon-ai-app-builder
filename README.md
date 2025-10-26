@@ -1,4 +1,4 @@
-# OpenSPG - AI-Powered Knowledge Development Platform
+# AEON AI Application Builder - AI-Powered Knowledge Development Platform
 
 > **Next-generation IDE combining AI-powered development with semantic code understanding through knowledge graphs**
 
