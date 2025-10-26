@@ -1,0 +1,12 @@
+FROM oven/bun:1.0
+
+WORKDIR /app
+
+COPY package.json turbo.json ./
+COPY packages/*/package.json ./packages/
+
+RUN bun install --frozen-lockfile
+
+COPY . .
+
+RUN bun install --frozen-lockfile

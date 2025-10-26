@@ -1,0 +1,60 @@
+version: "3.8"
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: ./apps/web/Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./apps/web:/app/apps/web
+      - ./packages:/app/packages
+      - /app/node_modules
+      - /app/apps/web/node_modules
+    environment:
+      - NODE_ENV=development
+      - VITE_API_URL=http://localhost:3001
+    command: bun run dev
+    depends_on:
+      - api
+
+  api:
+    build:
+      context: .
+      dockerfile: ./apps/api/Dockerfile
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./apps/api:/app/apps/api
+      - ./packages:/app/packages
+      - ./data:/app/data
+      - /app/node_modules
+      - /app/apps/api/node_modules
+    environment:
+      - NODE_ENV=development
+      - PORT=3001
+      - DATABASE_PATH=/app/data/opencode.db
+      - MEMGRAPH_HOST=memgraph
+      - MEMGRAPH_PORT=7687
+    command: bun run dev
+    depends_on:
+      - memgraph
+
+  memgraph:
+    image: memgraph/memgraph:2.12.0
+    ports:
+      - "7687:7687"
+      - "7444:7444"
+    volumes:
+      - memgraph_data:/var/lib/memgraph
+      - memgraph_log:/var/log/memgraph
+      - memgraph_etc:/etc/memgraph
+    environment:
+      - MEMGRAPH_LOG_LEVEL=INFO
+    command: ["--log-level=INFO"]
+
+volumes:
+  memgraph_data:
+  memgraph_log:
+  memgraph_etc:

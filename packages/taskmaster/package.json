@@ -1,0 +1,51 @@
+{
+  "name": "@opencode/taskmaster",
+  "version": "2.0.0",
+  "description": "Advanced taskmaster system with SQLite database for Opencode Framework development orchestration",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest",
+    "lint": "eslint src --ext .ts,.tsx",
+    "lint:fix": "eslint src --ext .ts,.tsx --fix"
+  },
+  "dependencies": {
+    "better-sqlite3": "^9.4.3",
+    "uuid": "^9.0.1",
+    "date-fns": "^3.3.1",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.9",
+    "@types/uuid": "^9.0.7",
+    "tsup": "^8.0.2",
+    "typescript": "^5.3.3",
+    "vitest": "^1.2.2",
+    "eslint": "^8.56.0"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "keywords": [
+    "taskmaster",
+    "sqlite",
+    "project-management",
+    "development-orchestration",
+    "ai-workflows",
+    "opencode"
+  ],
+  "author": "Opencode Team",
+  "license": "MIT"
+}

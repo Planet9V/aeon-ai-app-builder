@@ -1,0 +1,45 @@
+{
+  "name": "@opencode/openspg",
+  "version": "0.4.0",
+  "private": true,
+  "description": "OpenSPG - AI-Powered Knowledge Development Platform with semantic code understanding through knowledge graphs. Created by Jim McKenney with AEON AI Personal Agent.",
+  "author": "Jim McKenney",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Planet9V/Opencode_Template.git"
+  },
+  "keywords": [
+    "ide",
+    "ai",
+    "knowledge-graph",
+    "semantic-programming",
+    "bmad",
+    "monaco-editor",
+    "openrouter",
+    "memgraph",
+    "code-editor",
+    "ai-assistant"
+  ],
+  "packageManager": "npm@10.0.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "test": "turbo test",
+    "lint": "turbo lint",
+    "typecheck": "turbo typecheck",
+    "clean": "turbo clean && rm -rf node_modules"
+  },
+  "devDependencies": {
+    "turbo": "^2.0.0",
+    "typescript": "^5.0.0",
+    "prettier": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "bun": ">=1.0.0"
+  }
+}
